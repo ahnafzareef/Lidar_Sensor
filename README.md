@@ -95,8 +95,3 @@ To run:
 4. Open a serial terminal connected to UART0.
 5. Press the PJ0 button to begin scanning.
 6. Capture the UART output for plotting or conversion into point-cloud data.
-
-## Notes
-
-- The scan count and angular resolution can be changed through `NUM_SCANS` and `NUM_ANGLES` in `scanningLogic.c`.
-- A sample `.xyz` file is included in this folder as an example of processed scan output.
