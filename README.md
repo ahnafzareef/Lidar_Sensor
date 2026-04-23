@@ -13,29 +13,7 @@ Core behavior:
 - Starts and stops scans using the PJ0 push button interrupt
 - Collects `3` scans by default (`NUM_SCANS`)
 - Samples `128` angular positions per scan (`NUM_ANGLES`)
-- Sends scan data over UART in CSV-style lines
-
-## Main Files
-
-- `scanningLogic.c`: main scan controller, motor stepping logic, button interrupt handling, and UART output formatting
-- `VL53L1X_api.c`: ToF sensor API
-- `vl53l1_platform_2dx4.c`: low-level platform support for the sensor
-- `uart.c`: UART initialization and serial printing helpers
-- `SysTick.c`: delay utilities
-- `PLL.c`: clock setup
-- `onboardLEDs.c`: board LED support
-- `KeilProject.uvprojx`: Keil uVision project file
-- `zareefXYZHallwayProper.xyz`: example point-cloud style output generated from scan data
-
-## Hardware / Interfaces
-
-- **Board:** Texas Instruments MSP432E401Y
-- **Sensor:** VL53L1X time-of-flight distance sensor
-- **Motor:** stepper motor driven from `PH0-PH3`
-- **Button input:** `PJ0`
-- **Sensor reset / XSHUT control:** `PG0`
-- **I2C:** `PB2-PB3`
-- **UART:** `PA0-PA1`
+- Sends scan data over UART in lines
 
 ## How It Works
 
@@ -49,47 +27,3 @@ Core behavior:
 
 If the button is pressed during an active scan, the firmware stops early, returns the sensor to its start position, and requests a rescan of the same scan index.
 
-## UART Output Format
-
-Each successful measurement is transmitted as:
-
-```text
-scan_index,angle_degrees,distance_mm
-```
-
-Example:
-
-```text
-0,90,734
-1,123,65535
-```
-
-Control/status messages include:
-
-- `END_SCAN` when one scan finishes and more remain
-- `END` when all scans are complete
-- `STOPPED` when a scan is interrupted
-- `RESCAN n` to indicate which scan should be repeated
-
-## My Contribution
-
-My main implementation work for this project was the scan-control logic in `scanningLogic.c`, including:
-
-- stepper motor sweep control
-- button-based start/stop behavior
-- scan state management across multiple passes
-- distance filtering for invalid measurements
-- UART formatting for downstream processing
-
-## Build / Run
-
-This project is set up for **Keil uVision** with the MSP432E401Y device pack.
-
-To run:
-
-1. Open `KeilProject.uvprojx` in Keil uVision.
-2. Build and flash the project to the MSP432E401Y board.
-3. Connect the VL53L1X sensor, stepper motor, and button to the pins listed above.
-4. Open a serial terminal connected to UART0.
-5. Press the PJ0 button to begin scanning.
-6. Capture the UART output for plotting or conversion into point-cloud data.
