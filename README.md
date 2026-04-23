@@ -21,7 +21,7 @@ Core behavior:
 4. At each position, the firmware waits for valid ToF data and stores the measured distance.
 5. Invalid readings are marked as `65535`.
 6. When a scan finishes, the motor returns to its starting position and the results are printed over UART.
-7. The process repeats until `3` scans have been completed.
+7. The process repeats.
 
 If the button is pressed during an active scan, the firmware stops early, returns the sensor to its start position, and requests a rescan of the same scan index.
 
