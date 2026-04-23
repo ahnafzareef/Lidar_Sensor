@@ -17,7 +17,7 @@ Core behavior:
 
 1. The firmware initializes the clock, SysTick, UART, GPIO, stepper motor pins, button interrupt, and VL53L1X sensor.
 2. A button press on `PJ0` starts a scan.
-3. The sensor is rotated through `128` predefined angle entries covering approximately `0` to `357` degrees.
+3. The sensor is rotated through `128` predefined angle entries covering approximately `0` to `360` degrees.
 4. At each position, the firmware waits for valid ToF data and stores the measured distance.
 5. Invalid readings are marked as `65535`.
 6. When a scan finishes, the motor returns to its starting position and the results are printed over UART.
