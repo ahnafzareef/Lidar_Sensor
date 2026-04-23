@@ -81,8 +81,6 @@ My main implementation work for this project was the scan-control logic in `scan
 - distance filtering for invalid measurements
 - UART formatting for downstream processing
 
-If `scanner.m` is included with the full submission, it can be described as the post-processing script used to take the UART scan output and convert it into coordinates for visualization or `.xyz` export.
-
 ## Build / Run
 
 This project is set up for **Keil uVision** with the MSP432E401Y device pack.
