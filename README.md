@@ -18,7 +18,7 @@ Core behavior:
 ## Main Files
 
 - `scanningLogic.c`: main scan controller, motor stepping logic, button interrupt handling, and UART output formatting
-- `VL53L1X_api.c`: ST ToF sensor API
+- `VL53L1X_api.c`: ToF sensor API
 - `vl53l1_platform_2dx4.c`: low-level platform support for the sensor
 - `uart.c`: UART initialization and serial printing helpers
 - `SysTick.c`: delay utilities
