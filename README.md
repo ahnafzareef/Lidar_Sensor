@@ -1,5 +1,3 @@
- 2DX3 Hallway Scanner
-
 Embedded scanning project for the MSP432E401Y using a VL53L1X time-of-flight sensor and a stepper motor to collect distance measurements across a full sweep. The firmware captures multiple scans, streams the results over UART, and can be paired with a MATLAB post-processing script to convert the scan data into a point cloud.
 
 ## Overview
